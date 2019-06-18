@@ -24,8 +24,7 @@
     <button id="signout_button" style="display: none;">Sign Out</button>
 
 
-
-    <section id="content" style="white-space: pre-wrap;"></section>
+    <pre id="content" style="white-space: pre-wrap;"></pre>
 
     <script type="text/javascript">
         var provider = new firebase.auth.GoogleAuthProvider();
@@ -84,7 +83,7 @@
                 authorizeButton.onclick = handleAuthClick;
                 signoutButton.onclick = handleSignoutClick;
             }, function(error) {
-                appendSection(JSON.stringify(error, null, 2));
+                appendPre(JSON.stringify(error, null, 2));
             });
         }
         /**
@@ -120,7 +119,7 @@
          *
          * @param {string} message Text to be placed in pre element.
          */
-        function appendSection(message) {
+        function appendPre(message) {
             var display = document.getElementById('content');
             var textContent = document.createTextNode(message + '\n');
             diaplay.appendChild(textContent);
@@ -141,7 +140,7 @@
                 'orderBy': 'startTime'
             }).then(function(response) {
                 var events = response.result.items;
-                appendSection('Upcoming events:');
+                appendPre('Upcoming events:');
 
                 if (events.length > 0) {
                     for (i = 0; i < events.length; i++) {
@@ -150,10 +149,10 @@
                         if (!when) {
                             when = event.start.date;
                         }
-                        appendSection(event.summary + ' (' + when + ')')
+                        appendPre(event.summary + ' (' + when + ')')
                     }
                 } else {
-                    appendSection('No upcoming events found.');
+                    appendPre('No upcoming events found.');
                 }
             });
         }

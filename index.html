@@ -64,42 +64,6 @@
         const ui = new firebaseui.auth.AuthUI(firebase.auth());
 
 
-        // var uiConfig = {
-        //     callbacks: {
-        //         signInSuccessWithAuthResult: function(authResult, redirectUrl) {
-        //             // User successfully signed in.
-        //             // Return type determines whether we continue the redirect automatically
-        //             return true;
-        //         },
-        //         uiShown: function() {
-        //             // The widget is rendered.
-        //             // Hide the loader.
-        //             document.getElementById('loader').style.display = 'none';
-        //         }
-        //     },
-        //     // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
-        //     signInFlow: 'popup',
-        //     signInSuccessUrl: 'https://kamueller2.github.io/test-app/',
-        //     signInOptions: [
-        //         // Leave the lines as is for the providers you want to offer your users.
-        //         firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-        //     ],
-        //     // Terms of service url.
-        //     tosUrl: '<your-tos-url>',
-        //     // Privacy policy url.
-        //     privacyPolicyUrl: '<your-privacy-policy-url>'
-        // };
-        // ui.start('#firebaseui-auth-container', uiConfig);
-        // This function will trigger when there is a login event
-        // console.log(user)
-        // Make sure there is a valid user object
-        // if (user) {
-        //     var script = document.createElement("script");
-        //     script.type = "text/javascript";
-        //     script.src = "https://apis.google.com/js/api.js";
-        //     // script.src = "https://apis.google.com/js/platform.js"
-        //     script.src = "https://apis.google.com/js/platform.js?onload=init"
-
         function handleClientLoad() {
             gapi.load('client:auth2', initClient);
         }
@@ -109,7 +73,7 @@
         function initClient() {
 
             gapi.client.init({
-                apiKey: firebaseConfig.api_key,
+                apiKey: firebaseConfig.apiKey,
                 clientId: firebaseConfig.clientID,
                 discoveryDocs: firebaseConfig.discoveryDocs,
                 scope: firebaseConfig.scopes.join(" ")

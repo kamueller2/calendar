@@ -76,7 +76,7 @@
                 apiKey: firebaseConfig.apiKey,
                 clientId: firebaseConfig.clientID,
                 discoveryDocs: firebaseConfig.discoveryDocs,
-                scope: firebaseConfig.scopes.join(" ")
+                scope: firebaseConfig.scopes
             }).then(function() {
                 // Listen for sign-in state changes.
                 gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);

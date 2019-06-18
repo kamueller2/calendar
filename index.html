@@ -25,6 +25,7 @@
             <div id="my-signin2"></div>
             <!-- <button id="authorize_button" style="display: none;">Authorize</button>
             <button id="signout_button" style="display: none;">Sign Out</button> -->
+            <a href="#" onclick="signOut();">Sign out</a>
             <div id="loader"></div>
         </div>
     </section>
@@ -81,6 +82,7 @@
             }).then(function() {
                 // Listen for sign-in state changes.
                 gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
+
 
                 // Handle the initial sign-in state.
                 updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
